@@ -34,11 +34,10 @@ const PartnerListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin:0 150px;
-  
+  justify-content: space-evenly;
   @media (max-width: 500px) {
     margin:0 50px;
   }
-  
 `;
 
 const PartnerImage = styled.img`

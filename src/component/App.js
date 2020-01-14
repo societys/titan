@@ -6,6 +6,8 @@ import ContactUsButton from "./small/ContactUsButton";
 import CenteredPanel from "./panel/CenteredPanel";
 import PartnerPanel from "./panel/PartnersPanel";
 import {FooterPanel} from "../component/panel/FooterPanel"
+import TestimonyPanel from '../component/panel/TestimonyPanel'
+import styled from 'styled-components';
 
 const App = () => {
     return (
@@ -17,7 +19,10 @@ const App = () => {
             </CenteredPanel>
             <PanelHeader title='Partners' left/>
             <PartnerPanel/>
-            <PanelHeader title='Testimonies' right/>
+            <TestimonyWrapper>
+                <PanelHeader title='Testimonies' right reversed/>
+                <TestimonyPanel/>
+            </TestimonyWrapper>
             <PanelHeader title='Technologies' left/>
             <FooterPanel/>
         </div>
@@ -25,3 +30,8 @@ const App = () => {
 };
 
 export default App;
+
+const TestimonyWrapper = styled.div`
+  background: #0abdff;
+  padding: 20px 0 ;
+`;
