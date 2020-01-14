@@ -33,11 +33,21 @@ export default PartnerPanel;
 const PartnerListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin:0 200px;
+  margin:0 150px;
+  
+  @media (max-width: 500px) {
+    margin:0 50px;
+  }
+  
 `;
 
 const PartnerImage = styled.img`
     max-height:200px ;
     max-width:200px ;
     margin:50px;
+    
+  @media (max-width: 500px) {
+    max-height:120px ;
+    max-width:120px ;
+  }
 `;

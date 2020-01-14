@@ -1,19 +1,28 @@
-import React ,{useState} from 'react'
-import { Progress, Segment } from 'semantic-ui-react'
+import React, {useEffect, useState} from 'react'
+import {getTestimonies} from '../../service/static/TestimonyService'
+import {TestimonyComponent} from '../small/TestimonyComponent'
 
 const TestimonyPanel = () => {
-    const [progress,setProgress] = useState({
-        current:0,
-        max:100,
-        percent:0,
-    });
+    const [currentProgress, setProgress] = useState(0);
+    const [max, setMax] = useState(1);
+    const [testimonies, setTestimonies] = useState([]);
 
-    const [images,setImages] = useState([]);
+    const { Provider, Consumer } = React.createContext({ color: 'black' });
+
+    useEffect(() => {
+        (async () => {
+            const testimonies = await getTestimonies();
+            setTestimonies(testimonies);
+            setMax(testimonies.length);
+        })()
+    }, []);
+
+    const nextItem = () =>{
+        setProgress((currentProgress+1)/max);
+    };
 
     return (
-        <Segment>
-            <Progress percent={50} attached='bottom'/>
-        </Segment>
+        <TestimonyComponent/>
     );
 };
 
